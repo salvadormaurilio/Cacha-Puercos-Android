@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class PoliceMan implements Serializable{
     private String name;
     private String imageUrl;
-    private int rate;
+    private float rate;
     private int description;
 
     public PoliceMan() {
@@ -31,11 +31,11 @@ public class PoliceMan implements Serializable{
         this.imageUrl = imageUrl;
     }
 
-    public int getRate() {
+    public float getRate() {
         return rate;
     }
 
-    public void setRate(int rate) {
+    public void setRate(float rate) {
         this.rate = rate;
     }
 
@@ -47,7 +47,7 @@ public class PoliceMan implements Serializable{
         this.description = description;
     }
 
-    public PoliceMan(String name, String imageUrl, int rate, int description) {
+    public PoliceMan(String name, String imageUrl, float rate, int description) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.rate = rate;

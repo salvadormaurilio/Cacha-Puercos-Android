@@ -23,4 +23,6 @@
     <string name="fragment_nine">Cuando el policía pida tu licencia de conducir y tarjeta de circulación, se los debe devolver en el mismo lugar y salvo que efectivamente hayas cometido una infracción, podrás retener algún documento para garantizar el pago de multa.</string>
     <string name="fragment_ten">Al momento de llenar la papeleta de la infracción, el agente debe incluir la fecha, hora, lugar y una breve descripción de la falta cometida al igual que su nombre, número de placa, adscripción y firma del agente que te levanta la sanción.</string>
     <string name="action_pay">Pago</string>
+    <string name="description">Descripción</string>
+    <string name="commens">Comentarios:</string>
 </resources>
