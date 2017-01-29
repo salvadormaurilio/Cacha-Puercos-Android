@@ -2,7 +2,7 @@
 <resources>
   <color name="primary">#3D4399</color>
   <color name="primary_dark">#323785</color>
-  <color name="accent">#D6D7E0</color>
+  <color name="accent">#7781ff</color>
   <color name="item_chat_received">#eff0ff</color>
   <color name="item_chat_send">#7781ff</color>
   <color name="background">#f4f5ff</color>
