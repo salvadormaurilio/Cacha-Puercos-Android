@@ -13,10 +13,13 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
+import com.marytts.android.link.MaryLink;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import mariachi.com.cachapuercos.R;
+import mariachi.com.cachapuercos.chat.data.cloud.ChatApiRest;
+import mariachi.com.cachapuercos.chat.domain.SendMessage;
 import mariachi.com.cachapuercos.chat.view.adapter.ChatAdapter;
 import mariachi.com.cachapuercos.chat.view.model.ChatModel;
 import mariachi.com.cachapuercos.chat.view.presenter.ChatPresenter;
@@ -49,7 +52,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
   }
 
   private void initializePresenter() {
-    mChatPresenter = new ChatPresenter();
+    mChatPresenter = new ChatPresenter(new SendMessage(new ChatApiRest()));
     mChatPresenter.setView(this);
   }
 
@@ -101,6 +104,11 @@ public class ChatActivity extends BaseActivity implements ChatView {
   @Override public void showNewMessage(String message, int typeChat) {
     mAdapter.add(new ChatModel(message, typeChat));
     mListChat.smoothScrollToPosition(mAdapter.getItemCount());
+
+  }
+
+  @Override protected void onStop() {
+    super.onStop();
   }
 
   @Override public void showScreenForVoice() {
@@ -123,7 +131,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
       case REQ_CODE_SPEECH_INPUT: {
         if (resultCode == RESULT_OK && null != data) {
           ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-          mChatPresenter.sendMessageByVoice(result.get(0));
+          mChatPresenter.sendMessageToServer(result.get(0));
         }
         break;
       }

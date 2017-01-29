@@ -13,6 +13,13 @@ android {
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     vectorDrawables.useSupportLibrary = true
     multiDexEnabled true
+//    packagingOptions {
+//      exclude 'META-INF/LICENSE.txt'
+//      exclude 'META-INF/NOTICE.txt'
+//      exclude 'META-INF/LICENSE'
+//      exclude 'META-INF/NOTICE'
+//      exclude 'META-INF/DEPENDENCIES'
+//    }
   }
   buildTypes {
     release {
@@ -45,6 +52,14 @@ dependencies {
 
   compile 'io.reactivex:rxjava:1.1.6'
   compile 'io.reactivex:rxandroid:1.2.0'
-    compile 'com.android.support:multidex:1.0.1'
+  compile 'com.android.support:multidex:1.0.1'
   annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+  compile retrofitDependencies.retrofit
+  compile retrofitDependencies.gson
+  compile retrofitDependencies.rxJava
+  compile retrofitDependencies.loggingInterceptor
+  compile retrofitDependencies.okHttp
+
+//  compile 'com.marytts.android:marylib:1.0.1'
 }
