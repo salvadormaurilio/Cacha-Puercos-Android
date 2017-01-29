@@ -148,23 +148,38 @@
 
                 </LinearLayout>
             <RatingBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <me.zhanghai.android.materialratingbar.MaterialRatingBar
-                android:id="@+id/library_normal_ratingbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="-3dp"
+                android:id="@+id/library_normal_ratingbar"
+                android:numStars="5"
+                android:stepSize="0.1"
                 android:layout_gravity="center"
-                android:layout_marginRight="-3dp"
-                android:progressTint="@color/yellow" />
+                android:isIndicator="true"
+                android:shrinkColumns="1"
+                android:layout_marginTop="20dp"
+                android:progressTint="@color/yellow"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center">
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
                 android:id="@+id/pen"
-                android:layout_gravity="bottom|end"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="bottom|left"
                 app:srcCompat="@drawable/ic_pen"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom|right"
+                android:layout_marginTop="50dp"
+                android:id="@+id/add"
+                android:layout_marginLeft="50dp"
+                app:srcCompat="@drawable/ic_add"/>
+</LinearLayout>
             </LinearLayout>
 
 

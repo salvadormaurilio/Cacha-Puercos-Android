@@ -27,11 +27,9 @@ public class SplashActivity extends AwesomeSplash {
     //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
 
         //Customize Logo
-        configSplash.setLogoSplash(R.drawable.ic_police); //or any other drawable
+        configSplash.setLogoSplash(R.drawable.ic_police_splash); //or any other drawable
         configSplash.setAnimLogoSplashDuration(1200); //int ms
         configSplash.setAnimLogoSplashTechnique(Techniques.FadeIn); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
-        configSplash.setOriginalHeight(1000); //in relation to your svg (path) resource
-        configSplash.setOriginalWidth(1000); //in relation to your svg (path) resource
 
 
     //Customize Title

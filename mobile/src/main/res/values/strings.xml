@@ -25,4 +25,11 @@
     <string name="action_pay">Pago</string>
     <string name="description">Descripción</string>
     <string name="commens">Comentarios:</string>
+    <string name="message">Comentario</string>
+    <string name="acept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="nombre">Nombre</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="commen">Comentario</string>
+    <string name="crearpoli">Agregar policia</string>
 </resources>
