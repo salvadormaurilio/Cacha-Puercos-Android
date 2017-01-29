@@ -73,7 +73,7 @@
         android:layout_marginEnd="@dimen/spacing_medium"
         android:layout_marginRight="@dimen/spacing_medium"
         app:fabSize="normal"
-        app:srcCompat="@drawable/ic_chevron_right_black_24dp"
+        app:srcCompat="@drawable/ic_keyboard_voice_black_24dp"
         />
 
 

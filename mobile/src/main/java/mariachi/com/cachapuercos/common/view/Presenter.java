@@ -48,6 +48,8 @@ public abstract class Presenter<T extends Presenter.View> {
    */
   public abstract void destroy();
 
+
+
   /**
    * Vista genérica que contiene métodos comunes para todas las abstracciones de la vista usados en
    * la aplicación.

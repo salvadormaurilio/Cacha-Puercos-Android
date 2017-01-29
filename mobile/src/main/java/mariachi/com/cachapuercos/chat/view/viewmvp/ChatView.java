@@ -7,7 +7,13 @@ import mariachi.com.cachapuercos.common.view.Presenter;
  */
 
 public interface ChatView extends Presenter.View {
+  void showVoiceIcon();
+
+  void showKeyBoardIcon();
+
   void clearInputMessage();
 
   void showNewMessage(String message, int typeChat);
+
+  void showScreenForVoice();
 }
