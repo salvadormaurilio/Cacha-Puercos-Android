@@ -1,6 +1,7 @@
 package mariachi.com.cachapuercos.ui.activitys.fragment;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import mariachi.com.cachapuercos.R;
 import mariachi.com.cachapuercos.model.PoliceMan;
+import mariachi.com.cachapuercos.ui.activitys.payactivity.PayActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,6 +100,17 @@ public class MainFragment extends Fragment
   }
 
   @Override public boolean onMarkerClick(Marker marker) {
+
+    int position = getPositionFromId(marker.getId());
+
+    Intent intent = new Intent(getContext(), PayActivity.class);
+    intent.putExtra("Police", mPoliceManList.get(position));
+    startActivity(intent);
+
     return false;
+  }
+
+  private int getPositionFromId(String id) {
+    return Integer.parseInt(id.substring(1, id.length()));
   }
 }

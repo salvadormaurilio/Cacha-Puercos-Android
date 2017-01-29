@@ -48,6 +48,7 @@ public class PayActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         intent= getIntent();
         policeMan= (PoliceMan) intent.getSerializableExtra("Police");
+        initValues();
 
     }
 
