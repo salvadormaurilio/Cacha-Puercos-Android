@@ -1,23 +1,25 @@
 package mariachi.com.cachapuercos.ui.activitys.fragment;
 
-
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.ArrayList;
-
+import java.util.List;
 import mariachi.com.cachapuercos.R;
-import mariachi.com.cachapuercos.model.LocationsSample;
+import mariachi.com.cachapuercos.model.PoliceMan;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,77 +28,76 @@ import mariachi.com.cachapuercos.model.LocationsSample;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment implements OnMapReadyCallback {
-    private GoogleMap mMap;
-    private MarkerOptions markerOptions;
+public class MainFragment extends Fragment
+    implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
-    Bundle args;
+  private GoogleMap mMap;
+  private List<PoliceMan> mPoliceManList;
 
+  public static MainFragment newInstance() {
+    return new MainFragment();
+  }
 
+  @Override public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+  }
 
+  @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
+      Bundle savedInstanceState) {
+    // Inflate the layout for this fragment
+    View view = inflater.inflate(R.layout.fragment_main, container, false);
+    SupportMapFragment mapFragment =
+        (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+    mapFragment.getMapAsync(this);
 
-    public MainFragment() {
-        // Required empty public constructor
+    return view;
+  }
+
+  public void setUserMarket(LatLng latLng) {
+    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+  }
+
+  @Override public void onMapReady(GoogleMap googleMap) {
+    mMap = googleMap;
+    if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+        == PackageManager.PERMISSION_GRANTED
+        || ActivityCompat.checkSelfPermission(getContext(),
+        Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+      mMap.setMyLocationEnabled(true);
     }
 
+    showPolices(createListPoliceMan());
+    mMap.setOnMarkerClickListener(this);
+  }
 
+  private void showPolices(List<PoliceMan> listPoliceMan) {
 
-    public static MainFragment newInstance() {
-        MainFragment fragment = new MainFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
+    for (PoliceMan policeMan : listPoliceMan) {
+      mMap.addMarker(new MarkerOptions().title(policeMan.getName())
+          .position(new LatLng(policeMan.getLatitude(), policeMan.getLongitude()))
+          .icon(BitmapDescriptorFactory.fromResource(R.mipmap.police_indicator))
+
+      );
     }
+  }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+  private List<PoliceMan> createListPoliceMan() {
+    mPoliceManList = new ArrayList<>();
 
-    }
+    mPoliceManList.add(new PoliceMan("Pedro Henandez Garcia", 19.412800, -99.166197,
+        "http://mxcdn02.mundotkm.com/2015/12/poli_poliglota_df3.jpg", 5, "Muy honesto."));
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-                .findFragmentById(R.id.map);
-        args = getArguments();
-        int index = args.getInt("index", 0);
-        mapFragment.getMapAsync(this);
+    mPoliceManList.add(new PoliceMan("Jose Perez Moreno", 19.415027, -99.163464,
+        "https://i.ytimg.com/vi/fXNEB8Ce_qQ/hqdefault.jpg", 3, "Acepta chantajes o mordidas"));
 
-        return view;
-    }
+    mPoliceManList.add(new PoliceMan("Antonio Lopez Satiago", 19.411043, -99.164409,
+        "https://static-lacuarta-qa.s3.amazonaws.com/wp-content/uploads/sites/5/2014/07/22/1978766.jpg",
+        1, "Corructo, siempre obrece chntajes"));
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        // Add a marker in Sydney and move the camera
-       // LatLng sydney = new LatLng(lat,longi);
-       // mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-       // mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-    }
-    public void setUserMarket(LatLng latLng){
-        if (markerOptions==null){
-            markerOptions = new MarkerOptions().position(latLng).title("Hola Eder");
-            mMap.addMarker(markerOptions);
+    return mPoliceManList;
+  }
 
-        }
-        //updateMApForZip(06470);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,18));
-    }
-
-   // private void updateMApForZip(int zipCode){
-   //     ArrayList<LocationsSample> locationsSamples = DataService.getInstance().getLocationWith10MilesOfZip(zipCode);
-   //     for (int i =0; i<locationsSamples.size();i++){
-   //         LocationsSample locationsSample = locationsSamples.get(i);
-   //         MarkerOptions markerOptions = new MarkerOptions().position(new LatLng(locationsSample.getLatitud(),locationsSample.getLongitude()));
-   //         markerOptions.title(locationsSample.getLocationAddress());
-   //         markerOptions.snippet(locationsSample.getLocationAddress());
-   //         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.pin));
-   //         mMap.addMarker(markerOptions);
-   //     }
-   // }
-
-
+  @Override public boolean onMarkerClick(Marker marker) {
+    return false;
+  }
 }

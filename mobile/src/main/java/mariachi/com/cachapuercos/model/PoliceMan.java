@@ -7,12 +7,25 @@ import java.io.Serializable;
  */
 
 public class PoliceMan implements Serializable{
+
     private String name;
+    private double latitude;
+    private double longitude;
     private String imageUrl;
     private float rate;
-    private int description;
+    private String description;
 
     public PoliceMan() {
+    }
+
+    public PoliceMan(String name, double latitude, double longitude, String imageUrl, float rate,
+        String description) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.imageUrl = imageUrl;
+        this.rate = rate;
+        this.description = description;
     }
 
     public String getName() {
@@ -21,6 +34,22 @@ public class PoliceMan implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getImageUrl() {
@@ -39,20 +68,14 @@ public class PoliceMan implements Serializable{
         this.rate = rate;
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(int description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public PoliceMan(String name, String imageUrl, float rate, int description) {
-        this.name = name;
-        this.imageUrl = imageUrl;
-        this.rate = rate;
-        this.description = description;
-    }
 
     @Override
     public String toString() {

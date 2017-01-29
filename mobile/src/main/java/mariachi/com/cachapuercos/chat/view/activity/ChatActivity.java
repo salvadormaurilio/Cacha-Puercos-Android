@@ -29,6 +29,7 @@ import mariachi.com.cachapuercos.chat.view.model.ChatModel;
 import mariachi.com.cachapuercos.chat.view.presenter.ChatPresenter;
 import mariachi.com.cachapuercos.chat.view.viewmvp.ChatView;
 import mariachi.com.cachapuercos.common.view.BaseActivity;
+import mariachi.com.cachapuercos.ui.activitys.MapsActivity;
 import mariachi.com.cachapuercos.ui.activitys.informationactivity.InformationActivity;
 import mariachi.com.cachapuercos.ui.activitys.payactivity.PayActivity;
 
@@ -88,7 +89,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
         startActivity(new Intent(this, InformationActivity.class));
         return true;
       case R.id.action_pay:
-        startActivity(new Intent(this, PayActivity.class));
+        startActivity(new Intent(this, MapsActivity.class));
         return true;
       default:
         return super.onOptionsItemSelected(item);

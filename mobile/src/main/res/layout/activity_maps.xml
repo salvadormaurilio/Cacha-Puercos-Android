@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activitys.MapsActivity">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/container_main">
+    tools:context=".activitys.MapsActivity"
+    >
+  <include layout="@layout/toolbar"/>
+  <FrameLayout
+      android:id="@+id/container_main"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
 
-    </FrameLayout>
-
+  </FrameLayout>
 
 
 </LinearLayout>
