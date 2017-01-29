@@ -30,6 +30,7 @@ import mariachi.com.cachapuercos.chat.view.presenter.ChatPresenter;
 import mariachi.com.cachapuercos.chat.view.viewmvp.ChatView;
 import mariachi.com.cachapuercos.common.view.BaseActivity;
 import mariachi.com.cachapuercos.ui.activitys.informationactivity.InformationActivity;
+import mariachi.com.cachapuercos.ui.activitys.payactivity.PayActivity;
 
 /**
  * 28/01/2017.
@@ -84,8 +85,10 @@ public class ChatActivity extends BaseActivity implements ChatView {
   @Override public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.action_info:
-        Log.i("ActionBar", "Nuevo!");
         startActivity(new Intent(this, InformationActivity.class));
+        return true;
+      case R.id.action_pay:
+        startActivity(new Intent(this, PayActivity.class));
         return true;
       default:
         return super.onOptionsItemSelected(item);

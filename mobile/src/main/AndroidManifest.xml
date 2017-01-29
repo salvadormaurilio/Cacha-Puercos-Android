@@ -25,13 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".chat.view.activity.ChatActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".chat.view.activity.ChatActivity"
+            android:screenOrientation="portrait">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -40,9 +40,17 @@
 
         <activity
             android:name=".ui.activitys.MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".ui.activitys.spechactivity.SpeechActivity" />
-        <activity android:name=".ui.activitys.informationactivity.InformationActivity"></activity>
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".ui.activitys.spechactivity.SpeechActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activitys.informationactivity.InformationActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activitys.payactivity.PayActivity"></activity>
     </application>
 
 </manifest>

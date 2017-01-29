@@ -6,4 +6,9 @@
         android:icon="@drawable/ic_information"
         android:orderInCategory="100"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_pay"
+        android:title="@string/action_pay"
+        android:icon="@drawable/ic_payment_method"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
 </menu>
