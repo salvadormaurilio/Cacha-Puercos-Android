@@ -15,6 +15,7 @@ public class ChatPresenter extends Presenter<ChatView> {
   }
 
   public void sendMessage(String message) {
+    getView().clearInputMessage();
     getView().showNewMessage(message, ChatModel.TYPE_SEND);
   }
 }

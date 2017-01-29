@@ -72,6 +72,9 @@ public class ChatActivity extends BaseActivity implements ChatView {
     return this;
   }
 
+  @Override public void clearInputMessage() {
+    mInputMessage.setText("");
+  }
 
   @Override public void showNewMessage(String message, int typeChat) {
     mAdapter.add(new ChatModel(message, typeChat));

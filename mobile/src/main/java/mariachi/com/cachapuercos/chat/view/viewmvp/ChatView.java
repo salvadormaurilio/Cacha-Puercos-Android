@@ -7,5 +7,7 @@ import mariachi.com.cachapuercos.common.view.Presenter;
  */
 
 public interface ChatView extends Presenter.View {
+  void clearInputMessage();
+
   void showNewMessage(String message, int typeChat);
 }
