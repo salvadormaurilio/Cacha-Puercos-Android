@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-import java.io.BufferedReader;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import mariachi.com.cachapuercos.R;
 
