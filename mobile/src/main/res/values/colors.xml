@@ -31,4 +31,7 @@
   <color name="color2">#F2F0D0</color>
   <color name="color3">#BFA595</color>
   <color name="black">#ffff</color>
+  <color name="title">#000000</color>
+  <color name="backgorund">#c6c6c6</color>
+  <color name="yellow">#FFFF00</color>
 </resources>
