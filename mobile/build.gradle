@@ -46,5 +46,5 @@ dependencies {
   compile 'io.reactivex:rxjava:1.1.6'
   compile 'io.reactivex:rxandroid:1.2.0'
     compile 'com.android.support:multidex:1.0.1'
-
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

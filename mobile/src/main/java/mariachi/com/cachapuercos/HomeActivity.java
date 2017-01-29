@@ -1,5 +1,7 @@
 package mariachi.com.cachapuercos;
 
+import android.content.Context;
+import android.location.LocationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
