@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dimen_16dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/my_btn_background_ripple">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:id="@+id/tv_event"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/dimen_16dp"
+            android:text="@string/message" />
+
+
+        <EditText
+            android:id="@+id/et_commen"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_120dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="@string/message"/>
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rating"
+            android:numStars="5"
+            android:stepSize="0.1"
+            android:layout_gravity="center"
+            android:shrinkColumns="1"
+            android:layout_marginTop="20dp"
+            android:progressTint="@color/yellow"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_dialog_commment_acept"
+                android:layout_width="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:background="@drawable/my_btn_background_ripple"
+                android:textColor="@color/white"
+                android:text="@string/acept" />
+
+            <Button
+                android:id="@+id/btn_dialog_commment_cancel"
+                android:layout_width="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:background="@drawable/my_btn_background_ripple"
+                android:textColor="@color/white"
+                android:text="@string/cancel" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
