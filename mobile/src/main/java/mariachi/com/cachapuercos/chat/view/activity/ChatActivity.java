@@ -7,7 +7,11 @@ import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 import butterknife.BindView;
@@ -22,6 +26,7 @@ import mariachi.com.cachapuercos.chat.view.model.ChatModel;
 import mariachi.com.cachapuercos.chat.view.presenter.ChatPresenter;
 import mariachi.com.cachapuercos.chat.view.viewmvp.ChatView;
 import mariachi.com.cachapuercos.common.view.BaseActivity;
+import mariachi.com.cachapuercos.ui.activitys.informationactivity.InformationActivity;
 
 /**
  * 28/01/2017.
@@ -32,6 +37,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
   @BindView(R.id.btn_send_message) FloatingActionButton mBtnSendMessage;
   @BindView(R.id.list_chat) RecyclerView mListChat;
   @BindView(R.id.input_message) EditText mInputMessage;
+  @BindView(R.id.toolbar) Toolbar toolbar;
   private ChatAdapter mAdapter;
   private final int REQ_CODE_SPEECH_INPUT = 100;
 
@@ -46,8 +52,29 @@ public class ChatActivity extends BaseActivity implements ChatView {
     initializePresenter();
     initializeAdapter();
     initializeList();
+    initializeToolbar();
   }
 
+  private void initializeToolbar() {
+    setSupportActionBar(toolbar);
+  }
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.menu_main, menu);
+    return true;
+  }
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.action_info:
+        Log.i("ActionBar", "Nuevo!");
+        startActivity(new Intent(this, InformationActivity.class));
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
+  }
   private void initializePresenter() {
     mChatPresenter = new ChatPresenter();
     mChatPresenter.setView(this);

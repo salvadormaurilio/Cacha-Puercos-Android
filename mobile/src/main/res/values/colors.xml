@@ -24,4 +24,11 @@
   <color name="white">#ffffff</color>
   <color name="bg_gradient_start">#31244e</color>
   <color name="bg_gradient_end">#6b394c</color>
+
+
+  <color name="theme_base">#243340</color>
+  <color name="color1">#3E4C59</color>
+  <color name="color2">#F2F0D0</color>
+  <color name="color3">#BFA595</color>
+  <color name="black">#ffff</color>
 </resources>

@@ -4,4 +4,22 @@
     <string name="speech_prompt">Say something&#8230;</string>
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
     <string name="tap_on_mic">Tap on mic to speak</string>
+    <string name="action_info">Infromación</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_section">Section </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_one">Cuando el agente que te detenga vaya en patrulla o motopatrulla, anota el número de la unidad o al menos aprenderlo.</string>
+    <string name="fragment_two">Procura viajar siempre con los seguros de las puertas abajo, y cuando seas detenido sólo baja lo suficiente la ventanilla, para escuchar y mostrar tus documentos al policía.</string>
+    <string name="fragemnt_three">Antes de entregar cualquier documento, verle la identificación y también anotarlo. En caso de que no se vea el nombre del oficial, tienes el derecho de pedirle que se lo muestre.</string>
+    <string name="fragment_four">No estás obligado a descender del auto y el agente no puede exigirte que lo hagas, si tu infracción no es grave.</string>
+    <string name="fragment_five">En caso de que la sanción requiera que tu vehículo sea llevado a un depósito o corralón, el agente de tránsito debe indicarte a cuál será, y sólo tú puedes llevar el vehículo, es decir, el policía no puede manejar tu auto para trasladarlo. En caso de que tu auto esté mal estacionado, el policía sí puede solicitar el servicio de grúa para que sea trasladado al corralón correspondiente. Tendrás que acudir a dicho sitio para pagar la multa y recoger tu auto.</string>
+    <string name="fragment_six">Si algún agente te pide que debe revisar tu auto en el interior o la cajuela de este, en teoría sólo podrá hacerlo si trae consigo una orden judicial emitida por un juez pero en la práctica la SSP-DF realiza estas revisiones “sorpresa”, esporádicamente en las principales vías de la ciudad, saltándose el Reglamento.</string>
+    <string name="fragment_seven">Si tu auto debe quedarse en el depósito, no debes dejar las llaves a los agentes aunque te lo pidan o exijan.</string>
+    <string name="fragemnt_eight">Una vez que el agente te ha detenido, él tiene la obligación de señalarte la infracción que cometiste, mostrándote el artículo del reglamento al que faltaste, así como la sanción que proceda.</string>
+    <string name="fragment_nine">Cuando el policía pida tu licencia de conducir y tarjeta de circulación, se los debe devolver en el mismo lugar y salvo que efectivamente hayas cometido una infracción, podrás retener algún documento para garantizar el pago de multa.</string>
+    <string name="fragment_ten">Al momento de llenar la papeleta de la infracción, el agente debe incluir la fecha, hora, lugar y una breve descripción de la falta cometida al igual que su nombre, número de placa, adscripción y firma del agente que te levanta la sanción.</string>
 </resources>
