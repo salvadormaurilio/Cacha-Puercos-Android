@@ -47,7 +47,7 @@ public class PayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay);
         ButterKnife.bind(this);
         intent= getIntent();
-        //policeMan= (PoliceMan) intent.getSerializableExtra("Police");
+        policeMan= (PoliceMan) intent.getSerializableExtra("Police");
 
     }
 
@@ -84,5 +84,9 @@ public class PayActivity extends AppCompatActivity {
         CommentDialog commentDialog = CommentDialog.newInstance();
         commentDialog.show(getSupportFragmentManager(),"Init diaolog");
 
+    }
+    @OnClick(R.id.add)
+    public void add(){
+    startActivity(new Intent(this,AddPolice.class));
     }
 }

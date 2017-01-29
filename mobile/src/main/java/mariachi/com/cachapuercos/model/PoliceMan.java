@@ -10,7 +10,7 @@ public class PoliceMan implements Serializable{
     private String name;
     private String imageUrl;
     private float rate;
-    private int description;
+    private String description;
 
     public PoliceMan() {
     }
@@ -39,15 +39,15 @@ public class PoliceMan implements Serializable{
         this.rate = rate;
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(int description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public PoliceMan(String name, String imageUrl, float rate, int description) {
+    public PoliceMan(String name, String imageUrl, float rate, String description) {
         this.name = name;
         this.imageUrl = imageUrl;
         this.rate = rate;

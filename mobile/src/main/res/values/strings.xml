@@ -28,4 +28,8 @@
     <string name="message">Comentario</string>
     <string name="acept">Aceptar</string>
     <string name="cancel">Cancelar</string>
+    <string name="nombre">Nombre</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="commen">Comentario</string>
+    <string name="crearpoli">Agregar policia</string>
 </resources>
