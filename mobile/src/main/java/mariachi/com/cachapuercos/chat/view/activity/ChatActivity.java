@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +18,6 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
-import com.marytts.android.link.MaryLink;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -46,6 +46,8 @@ public class ChatActivity extends BaseActivity implements ChatView {
 
   private ChatPresenter mChatPresenter;
 
+  private TextToSpeech textToSpeech;
+
   @Override protected int getLayout() {
     return R.layout.activity_chat;
   }
@@ -56,19 +58,30 @@ public class ChatActivity extends BaseActivity implements ChatView {
     initializeAdapter();
     initializeList();
     initializeToolbar();
+    initializeTextToSpeech();
+  }
+
+  private void initializeTextToSpeech() {
+    textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+      @Override public void onInit(int status) {
+        if (status != TextToSpeech.ERROR) {
+          textToSpeech.setLanguage(new Locale("es", "MX"));
+        }
+      }
+    });
   }
 
   private void initializeToolbar() {
     setSupportActionBar(toolbar);
   }
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
+
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.menu_main, menu);
     return true;
   }
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.action_info:
         Log.i("ActionBar", "Nuevo!");
@@ -78,13 +91,15 @@ public class ChatActivity extends BaseActivity implements ChatView {
         return super.onOptionsItemSelected(item);
     }
   }
+
   private void initializePresenter() {
+
     mChatPresenter = new ChatPresenter(new SendMessage(new ChatApiRest()));
     mChatPresenter.setView(this);
   }
 
   private void initializeAdapter() {
-    mAdapter = new ChatAdapter(this);
+    mAdapter = new ChatAdapter(this, mChatPresenter);
   }
 
   private void initializeList() {
@@ -131,11 +146,6 @@ public class ChatActivity extends BaseActivity implements ChatView {
   @Override public void showNewMessage(String message, int typeChat) {
     mAdapter.add(new ChatModel(message, typeChat));
     mListChat.smoothScrollToPosition(mAdapter.getItemCount());
-
-  }
-
-  @Override protected void onStop() {
-    super.onStop();
   }
 
   @Override public void showScreenForVoice() {
@@ -152,6 +162,10 @@ public class ChatActivity extends BaseActivity implements ChatView {
     }
   }
 
+  @Override public void showSoundMessage(String message) {
+    textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH, null);
+  }
+
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     switch (requestCode) {
@@ -163,5 +177,11 @@ public class ChatActivity extends BaseActivity implements ChatView {
         break;
       }
     }
+  }
+
+  @Override protected void onStop() {
+    super.onStop();
+    textToSpeech.stop();
+    textToSpeech.shutdown();
   }
 }

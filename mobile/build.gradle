@@ -62,4 +62,7 @@ dependencies {
   compile retrofitDependencies.okHttp
 
 //  compile 'com.marytts.android:marylib:1.0.1'
+  compile 'com.romandanylyk:pageindicatorview:0.0.9'
+
+
 }

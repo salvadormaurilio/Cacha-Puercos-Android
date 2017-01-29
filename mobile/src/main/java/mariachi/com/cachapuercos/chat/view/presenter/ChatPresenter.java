@@ -1,6 +1,7 @@
 package mariachi.com.cachapuercos.chat.view.presenter;
 
 import android.text.TextUtils;
+import java.text.Normalizer;
 import mariachi.com.cachapuercos.chat.data.entity.ChatResponseEntity;
 import mariachi.com.cachapuercos.chat.domain.SendMessage;
 import mariachi.com.cachapuercos.chat.view.model.ChatModel;
@@ -46,16 +47,26 @@ public class ChatPresenter extends Presenter<ChatView> {
   }
 
   public void sendMessageToServer(String message) {
+
+    String string = Normalizer.normalize(message, Normalizer.Form.NFD);
+    string = string.replaceAll("[^\\p{ASCII}]", "");
+
     getView().clearInputMessage();
     getView().showNewMessage(message, ChatModel.TYPE_SEND);
-    mSendMessage.setTextChat(message);
+
+
+    mSendMessage.setTextChat(string);
     mSendMessage.execute(new SendMessageSubscriber());
+  }
+
+
+  public void playMessage(String message) {
+    getView().showSoundMessage(message);
   }
 
   @Override public void destroy() {
 
   }
-
   private class SendMessageSubscriber extends Subscriber<ChatResponseEntity> {
     @Override public void onCompleted() {
 

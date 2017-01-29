@@ -1,6 +1,7 @@
 package mariachi.com.cachapuercos.common.view;
 
 import android.content.Context;
+import mariachi.com.cachapuercos.chat.view.model.ChatModel;
 
 /**
  * Presentador genérico que contiene métodos comunes para todos los presentadores usados en la

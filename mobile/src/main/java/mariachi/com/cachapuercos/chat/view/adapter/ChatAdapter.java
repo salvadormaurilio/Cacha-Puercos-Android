@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import mariachi.com.cachapuercos.R;
 import mariachi.com.cachapuercos.chat.view.model.ChatModel;
+import mariachi.com.cachapuercos.chat.view.presenter.ChatPresenter;
 
 /**
  * 28/01/2017.
@@ -18,9 +19,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
 
   private LayoutInflater mInflater;
   private List<ChatModel> mViewModelList;
+  private ChatPresenter mChatPresenter;
 
-  public ChatAdapter(Context context) {
+  public ChatAdapter(Context context, ChatPresenter chatPresenter) {
     mInflater = LayoutInflater.from(context);
+    mChatPresenter = chatPresenter;
     mViewModelList = new ArrayList<>();
   }
 
@@ -56,7 +59,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
         break;
     }
 
-    return new ChatViewHolder(viewItem);
+    return new ChatViewHolder(viewItem, mChatPresenter);
   }
 
   @Override public void onBindViewHolder(ChatViewHolder holder, int position) {

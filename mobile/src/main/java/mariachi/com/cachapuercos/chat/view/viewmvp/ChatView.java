@@ -16,4 +16,6 @@ public interface ChatView extends Presenter.View {
   void showNewMessage(String message, int typeChat);
 
   void showScreenForVoice();
+
+  void showSoundMessage(String message);
 }
