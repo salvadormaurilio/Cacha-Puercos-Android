@@ -14,9 +14,10 @@
     >
 
   <ImageView
-      app:srcCompat="@drawable/ic_police"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      app:srcCompat="@drawable/ic_information"
+      android:layout_width="70dp"
+      android:layout_height="70dp"
+      android:layout_alignParentLeft="true"
       android:text="Hello World!"
       />
 </RelativeLayout>
