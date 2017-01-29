@@ -1,30 +1,22 @@
 package mariachi.com.cachapuercos.ui.activitys;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
-
-import butterknife.ButterKnife;
-import mariachi.com.cachapuercos.HomeActivity;
 import mariachi.com.cachapuercos.R;
-import mariachi.com.cachapuercos.ui.activitys.spechactivity.SpeechActivity;
+import mariachi.com.cachapuercos.chat.view.activity.ChatActivity;
 
 public class SplashActivity extends AwesomeSplash {
 
-
-    @Override
-    public void initSplash(ConfigSplash configSplash) {
+  @Override public void initSplash(ConfigSplash configSplash) {
   /* you don't have to override every property */
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Customize Circular Reveal
         configSplash.setBackgroundColor(R.color.colorPrimary); //any color you want form colors.xml
@@ -32,7 +24,7 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
 
-        //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
+    //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
 
         //Customize Logo
         configSplash.setLogoSplash(R.drawable.ic_police); //or any other drawable
@@ -42,20 +34,16 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setOriginalWidth(1000); //in relation to your svg (path) resource
 
 
+    //Customize Title
+    configSplash.setTitleSplash(getString(R.string.app_name));
+    configSplash.setTitleTextColor(R.color.colorPrimaryDark);
+    configSplash.setTitleTextSize(30f); //float value
+    configSplash.setAnimTitleDuration(3000);
+    configSplash.setAnimTitleTechnique(Techniques.FlipInX);
+  }
 
-
-        //Customize Title
-        configSplash.setTitleSplash(getString(R.string.app_name));
-        configSplash.setTitleTextColor(R.color.colorPrimaryDark);
-        configSplash.setTitleTextSize(30f); //float value
-        configSplash.setAnimTitleDuration(3000);
-        configSplash.setAnimTitleTechnique(Techniques.FlipInX);
-    }
-
-    @Override
-    public void animationsFinished() {
-        startActivity(new Intent(this, SpeechActivity.class));
-        this.finish();
-
-    }
+  @Override public void animationsFinished() {
+    startActivity(new Intent(this, ChatActivity.class));
+    this.finish();
+  }
 }
