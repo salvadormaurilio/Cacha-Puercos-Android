@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:attrs="http://schemas.android.com/tools"
     android:background="@android:color/background_light"
     android:fitsSystemWindows="true">
     <android.support.design.widget.AppBarLayout
@@ -22,40 +21,271 @@
             android:fitsSystemWindows="true">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="190dp"
                 android:orientation="vertical">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="180dp">
-                    <android.support.v4.view.ViewPager
-                        android:id="@+id/viewPager"
+                    android:layout_height="190dp">
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        xmlns:android="http://schemas.android.com/apk/res/android" />
-                    <com.rd.PageIndicatorView
-                        android:id="@+id/pageIndicatorView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        attrs:piv_animationType="worm"
-                        attrs:piv_interactiveAnimation="true"
-                        attrs:piv_viewPager="@id/viewPager"
-                        attrs:piv_dynamicCount="true"
-                        android:layout_marginBottom="5dp"
-                        attrs:piv_radius="1dp"
-                        android:foregroundGravity="bottom"/>
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:id="@+id/police_image_profile"/>
+
+
                 </RelativeLayout>
 
             </LinearLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
-    <android.support.v7.widget.RecyclerView
+    <mariachi.com.cachapuercos.util.CustomNestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_content_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rec_view_products"
+        android:clipToPadding="false"
+        android:overScrollMode="ifContentScrolls"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70"
+                    android:textAlignment="textEnd"
+                    android:gravity="center|end"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="Papas fritas sabor adobo "
+                    android:id="@+id/tv_snack_profile_name"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="35"
+                    android:gravity="center|start"
+                    android:textColor="@color/black"
+                    android:paddingStart="10dp"
+                    android:textAlignment="textStart"
+                    android:text="(100 grms)"
+                    android:id="@+id/tv_snack_profile_quantity"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@color/backgorund_products_bar">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:weightSum="100"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="40"
+                        android:text="@string/precio"
+                        style="@style/snack_details_info"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="50"
+                        android:textColor="@color/colorAccent"
+                        android:textStyle="bold"
+                        android:text="$ 45.00"
+                        android:textSize="17sp"
+                        android:id="@+id/tv_snack_profile_price"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center|start"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:weightSum="100"
+                    android:layout_marginRight="30dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="44"
+                        android:gravity="center|start"
+                        android:text="@string/description"
+                        style="@style/snack_details_info"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="64"
+                        android:textSize="11sp"
+                        android:maxLines = "3"
+                        android:gravity="center|start"
+                        android:scrollbars = "vertical"
+                        android:id="@+id/tv_snack_profile_description"
+                        android:text=" descripcion descripcion descripcion descripcion descripcion descripcion descripcion  descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:weightSum="100"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="40"
+                        android:gravity="center"
+                        android:text="@string/categoria"
+                        style="@style/snack_details_info"
+                        android:layout_marginTop="0dp"/>
+                    <HorizontalScrollView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="50">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/tv_snack_profile_category"
+                            android:gravity="center|start"
+                            android:scrollHorizontally="true"
+                            android:maxLines="1"
+                            android:textSize="12sp"
+                            android:scrollbars = "vertical"
+                            android:textColor="@color/black"
+                            android:text="Para Botanear" />
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@color/backgorund_products_bar">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:weightSum="100"
+                android:gravity="center"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/car"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimary"
+                            android:text="@string/gratuito"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="@string/compras_mayores"
+                            android:textColor="@color/black"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/quantity"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/cantidad"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/arrow_down"
+                        android:id="@+id/btn_down"/>
+                    <TextSwitcher
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
+                        android:id="@+id/tsw_cantidad"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/btn_up"
+                        android:src="@drawable/arrow_up"/>
+                </LinearLayout>
+
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="@string/buy"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:id="@+id/btn_comprar"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/btn_buy_background"/>
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:text="@string/go_back"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:id="@+id/btn_go_back"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/btn_buy_background"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@color/backgorund_products_bar">
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </mariachi.com.cachapuercos.util.CustomNestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
