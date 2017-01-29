@@ -80,6 +80,7 @@ public class MainFragment extends Fragment implements OnMapReadyCallback {
         if (markerOptions==null){
             markerOptions = new MarkerOptions().position(latLng).title("Hola Eder");
             mMap.addMarker(markerOptions);
+
         }
         //updateMApForZip(06470);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,18));
