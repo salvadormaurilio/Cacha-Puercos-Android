@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="mariachi.com.cachapuercos">
 
   <uses-permission android:name="android.permission.INTERNET"/>
@@ -22,31 +21,27 @@
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".chat.view.activity.ChatActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-    <activity android:name=".HomeActivity">
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-    </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
-    <activity android:name=".chat.view.activity.ChatActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-
-    <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="@string/google_maps_key"/>
-
-    <activity
-        android:name=".ui.activitys.MapsActivity"
-        android:label="@string/title_activity_maps"/>
-    <activity android:name=".ui.activitys.spechactivity.SpeechActivity"/>
-
-  </application>
+        <activity
+            android:name=".ui.activitys.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".ui.activitys.spechactivity.SpeechActivity" />
+        <activity android:name=".ui.activitys.informationactivity.InformationActivity"></activity>
+    </application>
 
 </manifest>

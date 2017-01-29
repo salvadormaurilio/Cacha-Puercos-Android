@@ -29,13 +29,13 @@ public class SplashActivity extends AwesomeSplash {
         //Customize Logo
         configSplash.setLogoSplash(R.drawable.ic_police); //or any other drawable
         configSplash.setAnimLogoSplashDuration(1200); //int ms
-        configSplash.setAnimLogoSplashTechnique(Techniques.RollIn); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
+        configSplash.setAnimLogoSplashTechnique(Techniques.FadeIn); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
         configSplash.setOriginalHeight(1000); //in relation to your svg (path) resource
         configSplash.setOriginalWidth(1000); //in relation to your svg (path) resource
 
 
     //Customize Title
-    configSplash.setTitleSplash(getString(R.string.app_name));
+    configSplash.setTitleSplash("");
     configSplash.setTitleTextColor(R.color.colorPrimaryDark);
     configSplash.setTitleTextSize(30f); //float value
     configSplash.setAnimTitleDuration(3000);
